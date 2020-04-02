@@ -1,0 +1,70 @@
+
+
+Let $(A,m^A)$ and $(B, m^B)$ be \Ainf-algebras, where
+$A = \<{a_1,...,a_n}$, $B = \<{b_1,...,b_m}$ and 
+$m^A : TA \to A$ and $m^B : TB \to B$ 
+
+\subsubsection{\Ainf-algebra}
+A morphism of $A_\infty$ algebras $f: A \to B$ is a family 
+\[ f_n: A^{\otimes n} \to B, \quad n= 0,1,2,... \]
+of graded maps of degree $1-n$ such that
+
+\[ \sum_{r+s+t=n} (-1)^{r+st} f_u(1^{\otimes r} \otimes m_s \otimes 1^{\otimes t}) 
+= \sum (-1)^s m_r(f_{i_1} \otimes f_{i_2} \otimes ... \otimes f_{i_r}). \]
+%
+where the sum on the right runs over all $1\le r\le n$ and all decompositions 
+$n = i_1 + i_2 + ... + i_n$, and the sign is given by 
+\[ s = (r-1)(i_1-1) + (r-2)(i_2 - 1) + ... + 2(i_{r-2} - 1) + (i_{r-1} - 1). \] 
+
+% \[ \sum_{r+s+t=n} (-1)^{r+st} f_u(a_1, ..., a_r, m_s(a_{r+1},..., a_{r+s}), a_{r+s+1},...,a_n) \]
+
+% Two \Ainf-algebras $(A,m^A)$ and $(B,m^B)$ are tame isomorphic there exists a
+% morphisms $f: A \to B$ and $g: B \to A$ such that 
+
+\subsubsection{Tame Isomorphism}
+
+
+
+% An automorphism $e: A\to A$ is \wddef{elementary} if, 
+% $\exists j \in \{1,...,n\}$ such that $e(a_i) = a_i$ for all $i\ne j$ and 
+% $e(a_j) = a_j + u$ for some $u \in
+% \<{a_1,...,a_{j-1},a_{j+1},...,a_n}$. 
+% We say an automorphism is \wddef{tame} is it is generated elementary ones. 
+% 
+% If $A' = \<{a_1',...,a_n'}$, an isomorphism $A \to A'$ is called \wddef{tame} 
+% if it is the composition of a tame automorphism on $A$ and the isomorphism sending $a_i$ to $a_i'$ for all $i \in \{1,...,n\}$.
+% 
+\subsubsection{Stabilization}
+Suppose $(A,m^A)$ and $(B,m^B)$ are graded by $\Gamma_A$ and $\Gamma_B$
+respectively, we define the \wddef{semi-free product} 
+$(A,m^A) \cupS (B, m^B) = (A \oplus B, m)$, where 
+$m|_A = m^A$, $m|_B = m^B$ and for any $a\in A$ and $b \in B$
+\[ m(...,a,...,b,...) = m(...,b,...,a,...) = 0. \] 
+For $i\in \Z$, let $(E_i, m_i) = (\Z_2\<{e_1,e_2}, m_i )$, where $\deg(e_1) = i$,
+$\deg(e_2) = i-1$, $m_1(e_2) = e_1$ and $m_1(e_1) = m_i = 0$, 
+for $i\ge 2$. Then we define the $i$-th \wddef{stabilization} of $(A,m^A)$,
+$S_i(A,m^A) = (A,m^A) \cupS (E_i, m_i)$.
+
+\subsubsection{Stable type}
+Two \Ainf-algebras $(A,m^A)$ and $(B,m^B)$
+are sad to have the same stable type if there exist 
+$j_1,...,j_k,j_1,...,j_k \in \Z$ and a morphism of \Ainf-algebras
+
+\[ f: S_{j_1} (...(S_{j_k} (A, m^A))...) \to S_{j_1} (...(S_{j_k} (B, m^B))...) \] 
+such that $f_1$ is a tame isomorphims.
+
+% TODO: need to define tame isomorphism of \Ainf-algebras.  
+% $f_n : A^{\otimes n} \to A$, 
+% such that $f_1$ is a tame isomorphims. 
+
+\begin{them}
+\label{prop:inv}
+Let $L$ and $L'$ be Legendrian knots and $(A, m^A)$, $(B, m^B)$ the
+\Ainf-algebras associated with $L$ and $L'$ respectively. 
+Then, if $L$ and $L'$ differ by a Legendrian isotopy,
+$(A, m^A)$ and $(B, m^B)$ have the same stable type.
+
+% The \Ainf-algebra associated to a Legendrian knot is 
+% invariant up to stable tame isomorphism under Legendrian isotopy.
+\end{them}
+

@@ -1,0 +1,113 @@
+
+
+\newcommand{\figpdf}[3]{
+\begin{figure}
+\centering
+\includegraphics[width=#1\textwidth]{figs/#2.pdf}
+\caption{#3}
+\label{fig:#2}
+\end{figure}}
+
+% Specific definitions
+\newcommand{\Ainf}{$A_\infty$}
+
+\def \I {\mathbbm{1}}
+\def \M {\mathcal{M}}
+
+\newcommand{\wddef}[1]{\underline{#1}}
+\newcommand{\<}[1]{\langle #1 \rangle}
+
+\newcommand{\cupS}{\:\rotatebox[origin=c]{180}{$\Pi$}\:}
+
+\newcommand{\ato}{\dashrightarrow}
+
+\newcommand{\Cc}{\mathcal{C}}
+
+
+\newcommand{\pref}[1]{(\ref{#1})}
+
+\newcommand{\smaletilde}[1]{\tilde{#1}}
+\renewcommand{\tilde}[1]{\widetilde{#1}}
+
+\def \d{ \mathrm{d} }
+
+% TODO: 
+%\renewcommand{\circ}{\circ\:}
+
+% Standard setts.
+\def \N {\mathbb{N}}
+\def \Z {\mathbb{Z}}
+\def \Q {\mathbb{Q}}
+\def \R {\mathbb{R}}
+\def \C {\mathbb{C}}
+
+% Vector calculus.
+\newcommand{\dif}[3][]{
+	\ensuremath{\frac{d^{#1} {#2}}{d {#3}^{#1}}}}
+\newcommand{\pdif}[3][]{
+	\ensuremath{\frac{\partial^{#1} {#2}}{\partial {#3}^{#1}}}}
+
+\renewcommand{\dd}[1]{\dif{}{#1}}
+\newcommand{\pdd}[1]{\pdif{}{#1}}
+
+% Vectors and matrices.
+\newcommand{\mat}[1]{\begin{matrix} #1 \end{matrix}}
+\newcommand{\pmat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\bmat}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+
+% Add space around the argument.
+\newcommand{\qq}[1]{\quad#1\quad}
+\newcommand{\q}[1]{\:\:#1\:\:}
+
+\newcommand{\lskip}{\vspace{\baselineskip}}
+
+% Implications
+\newcommand{\la}{\ensuremath{\Longleftarrow}}
+\newcommand{\ra}{\ensuremath{\Longrightarrow}}
+\newcommand{\lra}{\ensuremath{\Longleftrightarrow}}
+
+\newcommand{\pwf}[1]{\begin{cases} #1 \end{cases}}
+\newcommand{\tif}{\text{if}\quad}
+\newcommand{\tand}{\text{and}}
+
+
+% Shorthand
+\newcommand{\vphi}{\varphi}
+\newcommand{\veps}{\varepsilon}
+
+% Maths Operators
+\let\ker\undefined
+%\let\span\undefined
+
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\ker}{ker}
+\DeclareMathOperator{\spann}{span}
+
+
+\DeclareMathOperator{\Diff}{Diff}
+
+% might want to have this is envs.sty or something
+% Maths Environments 
+
+% \theoremstyle{plain}
+% \newtheorem{thm}{Theorem}[chapter] % reset theorem numbering for each chapter
+% 
+% \theoremstyle{definition}
+% \newtheorem{defn}[thm]{Definition} % definition numbers are dependent on theorem numbers
+% \newtheorem{exmp}[thm]{Example} % same for example numbers
+
+
+\theoremstyle{plain}
+\newtheorem{them}{Theorem}[section]
+\newtheorem{prop}[them]{Proposition}
+\newtheorem{corol}[them]{Corollary}
+\newtheorem{lemma}[them]{Lemma}
+
+\newtheorem{defn}[them]{Definition}
+\newtheorem{exmp}[them]{Example}
+\newtheorem{clame}[them]{Clame}
+
+\theoremstyle{definition}
+\newtheorem{remark}[them]{Remark}

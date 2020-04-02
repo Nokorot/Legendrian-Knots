@@ -1,0 +1,306 @@
+
+% \subsection{The Chekanov-Poincar\'{e} polynomials}
+
+Consider a finite \Ainf-algebra $(A,m)$ over $\Z_2$. If $A$ in uncurved, recall that we may define the cohomology 
+\[ H^*(A, m_1) = \frac{\ker m_1}{\im m_1}, \] 
+a $\Gamma$ graded $k$-vector space. 
+
+\begin{defn}
+If $A$ is uncurved and finite-dimensional then so is the cohomology, so we may define the \wddef{Poincar\'{e} Polynomial}
+\[ P_A(\lambda) := \sum_{i \in \Gamma} \dim\qty( H^i(A,m_1) )\cdot \lambda^i. \]
+\end{defn}
+
+This is clearly a invariant of the cohomology of uncurved \Ainf algebras. However
+is is not clear how this is useful as an invariant of Legendrian knots, as the
+associated \Ainf algebra in general is curved.
+
+
+
+% \subsection{Maurer-Cartan element}
+
+\begin{defn}
+Let $a \in A$, then, for $n \in \N$, define 
+$ m^c: TA \to A, $by 
+\begin{equation}
+\label{eq:def_id_of_mc}
+m^c_n(a_1,...,a_n) := \sum_{i_0,...,i_n}
+m_u\big(\underbrace{c,...,c}_{i_0},a_1,\underbrace{c,...,c}_{i_1},a_2,c,...,c,a_n,\underbrace{c,...,c}_{i_n}\big), 
+\end{equation}
+where the sum runs over all combinations of $i_0,...,i_n \ge 0$.
+\end{defn}
+
+Note that, since $A$ is finite, the sum is well-defined.
+Also note that from here on, we will write $c...$, to mean a sequence of $c$'s. If we write $c,...,c$, the dots might also contain more then
+just $c$'s.
+
+\begin{lemma}
+\label{prop:Ac_is_ainf}
+If $|c| = 1$, then $A^c := (A, m^c)$ defines a new finite curved \Ainf-algebra
+\end{lemma}
+
+\begin{proof}
+First we need $|c| = 1$, in order for the maps to have the correct degree. With
+$|c|=1$ this works out, since the degree increases by 1 for each occurrence of $c$
+and decreases by 1 for each extra entry in $m_u$.  
+It is immediately clear from the definition that it is finite, so it suffuses to
+check that the \Ainf-relations hold.
+
+\begin{align*}
+&\sum_{r,s,t} m^c_u (a_1,...,a_r, m^c_s(a_{r+1},...,a_{r+s}), a_{r+s+1},...,a_{n}) \\
+&= \sum_{r,s,t} \sum_{i_0,...,i_s} m^c_u (a_1,...,a_r, 
+m_{u'}(\underbrace{c...}_{i_{0}},a_{r+1},c,...,c,a_{r+s},\underbrace{c...}_{i_{s}})
+a_{r+s+1},...,a_{n})\\
+&= \sum_{r,s,t} \sum_{i_0,...,i_s} \sum_{j_0,...,j_{u}} m_{u''} (\underbrace{c...}_{i_0},a_1,c,...c,a_r,\underbrace{c...}_{j_r}, \\
+& \qquad\qquad 
+m_{u'}(\underbrace{c...}_{i_0},a_{r+1},c,...,c,a_{r+s},\underbrace{c...}_{i_{r+s}}),
+\underbrace{c,...}_{j_{r+1}},a_{r+s+1},c,...,c,a_{n},\underbrace{c...}_{j_u}) \\
+% &= \sum_{N\ge n} \sum_{r,s,t} \sum_{i_*,j_*} \qty\{\text{same as in the previous line} \}
+\end{align*}
+In the first line we expand the inner $m^c$ according to
+(\ref{eq:def_id_of_mc}), and in the second line we expand the outer $m^c$. The
+indices $r,s,t$ are as in the \Ainf-relations (\ref{eq:Ainf_rels}) and the
+indices $i_0,...,i_s$ and $j_0,...,j_u$ are as in (\ref{eq:def_id_of_mc}).
+Finally $u=r+t+1$, $u' = s + \sum i_k$ and $u'' = r+t+\sum j_k$. (Note that, for
+now on, this indices will be assumed without stated explicitly. ) 
+
+Considering the sums in the last line, we can sort them according to the total
+number of $c$'s (ie. $N = \sum_k i_k + \sum_k j_k)$. 
+\[ \sum_{r,s,t} \sum_{i_0,...,i_s} \sum_{j_0,...,j_{u}} \{ ... \}
+= \sum_{N \ge 0} \sum_{r,s,t} \sum_{i'_0,...,i'_s} \sum_{j'_0,...,j'_u} \{
+... \}. \]
+Then for each $N$ the inner sum is the left hand side of the $N$'th \Ainf-relation in $m$ applied to $\xi_N \in A^{\otimes N}$, the sum of all ways of putting $N$ $c$'s between the $a$'s. ie.
+\[  \xi_N = \sum_{k_0,...,k_n} (\underbrace{c...}_{k_0}, a_1, c,...,c, a_n,
+\underbrace{c...}_{k_n}),
+\qquad k_0+...+k_n = N. \] 
+Since the $m$ satisfy the \Ainf-relation, we are done.
+\end{proof}
+
+\begin{defn}
+An element $c \in A$ is called a \wddef{Maurer-Cartan element} (MC element) if $|c| = 1$ and 
+\[ \sum_{n \ge 0} m_n(c...) = 0. \]
+\end{defn}
+
+\begin{lemma}
+$(A,m^c)$ is uncurved if and only if $c$ is a MC element.
+\end{lemma}
+
+\begin{proof}
+By definition,
+\[ m_0^c = \sum_{n \ge 0} m_n(c...) = 0 \]
+\end{proof}
+
+\begin{defn}
+If $A$ is a finite-dimensional finite curved \Ainf-algebra, define 
+\[ I(A) := \{ P_{A^c} \q: c \in A \text{ is a MC element} \}. \]
+\end{defn}
+
+We later will see that this set of Poincar\'{e} polynomials is invariant under
+stable tame isomorphism and thus Legendrian isotopy. Not that the isomorphism
+need not actually be tame, for this to be true. 
+
+\begin{defn}
+\label{def:hom_c}
+Let $c \in A$ and $f: A \ato B$, then like in (\ref{eq:def_id_of_mc}), define
+$f_n : A^{\otimes n} \to B$ by
+\begin{equation}
+\label{eq:hom_c}
+f^c_n(a_1,...,a_n) := \sum_{i_0,...,i_n}
+f_u(\underbrace{c...}_{i_0},a_1,c,...,c,a_n,\underbrace{c...}_{i_n}).
+\end{equation}
+Also, we write $f_*(c) := f_0^c = \sum_{n\ge 0} f_n(c...)$.
+\end{defn}
+
+\begin{lemma}
+If $f: A \ato B$ and $c\in A$ is a MC element, then so is $f_*(c) \in B$.
+\end{lemma}
+\begin{proof}
+By the defining relation of $f$ (\ref{eq:ainf_morph_rel}) and linearity we
+have.
+\begin{align*}
+m^B_n(f_*(c), ..., f_*(c)) 
+&= \sum_{i_1,...,i_n} m^B_n(f_{i_1}(c...), ..., f_{i_n}(c...)) 
+= \sum_{r,s,t} f_u(c..., m_s(c...), c...)  \\
+&= \sum_{r,t} f_u(c..., \sum_s m_s(c...), c...)  = 0
+\end{align*}
+\end{proof}
+
+\begin{lemma}
+$\{ f^c_n \}_{n \ge 1}$ defines a finite uncurved \Ainf-homomorphism 
+\[ f: A^c \to B^{f_*(c)}. \]
+\end{lemma} 
+
+\begin{proof}
+We need to check that $f$, satisfy equation (\ref{eq:ainf_morph_rel}). 
+We have
+\begin{align*}
+& \text{LHS} (a_1,...,a_n) \\
+&= \sum_{r,s,t} f^c_u (a_1, ..., a_r, m^{A,c}_s(a_{r+1}, ..., a_{r+s}),
+a_{r+s+1}, ..., a_{n}) \\
+%
+% &= \sum_{r,s,t} \sum_{i_1,...,i_s} f^c_u (a_1, ..., a_r, m_s(c...,a_{r+1}, c,
+% ...,c, a_{r+s},c...),
+% a_{r+s+1}, ..., a_{n}) \\
+%
+&= \sum_{r,s,t} \sum_{i_0,...,i_s}\sum_{j_0,...,j_u} 
+f_u \big(\underbrace{c...}_{j_0},a_1,c,...,c, a_r,\underbrace{c...}_{j_r}, \\
+& \qquad\qquad\qquad\qquad\qquad 
+m^A_s(\underbrace{c...}_{i_0}, a_{r+1}, c,...,c, a_{r+s},\underbrace{c...}_{i_s}),
+c..., a_{r+s+1},c..., a_{n} \big) 
+\end{align*}
+The first line is precisely what appear in the equation. In the following line
+we expand $m^c$ and $f^c$. Like in the proof of lemma (\ref{prop:Ac_is_ainf}),
+we sort the terms according the total number of $c$'s. We get the left hand
+side of the $N$th \Ainf-homomorphism relation in $f$ and $m$, applied to $\xi_N \in
+A^{\otimes N}$ (where $\xi$ is as in lemma (\ref{prop:Ac_is_ainf})). Applying
+the relation we have
+\begin{align*}
+& \text{LHS} (a_1,...,a_n) 
+= \sum_N \sum_{i_1,...,i_r} m^A_r (f_{i_1} \otimes ... \otimes f_{n}) (\xi) \\
+&= \sum_N \sum_{i_1,...,i_r} \sum_{k_0,...,k_n} m^A_r (f_{i_1} \otimes ... \otimes
+f_{i_r}) (\underbrace{c...}_{k_0}, a_1, c,...,c, a_n,
+\underbrace{c...}_{k_n})
+\end{align*}
+Now, let's also study the right hand side.
+\begin{align*}
+&\text{RHS} (a_1,...,a_n) \\
+&= \sum_{i_1,...,i_r} m^{B,f_*(c)}_r (f^c_{i_1}(a_1,...,a_{i_1}), ...,
+f^c_{i_r}(a_{n-i_r},...,a_n)) \\ 
+&= \sum_{i_1,...,i_r}\sum_{k_0,...,k_s} m^B_r
+(f_{i_1}(\underbrace{c...}_{k_0},a_1,c,...,c,a_{i_1},\underbrace{c...}_{k_{i_1}}), ...,
+f_{i_r}(\underbrace{c...}_{k_{s-i_r}},a_{n-i_r},c...,a_n,\underbrace{c...}_{k_s})) 
+\end{align*}
+where $s = r + \sum i_*$. It is quite clear that these sums agree and thus we
+are done.  
+\end{proof}
+
+
+% \begin{lemma}
+% $c \in A$ is a MC element if an only if the map $\epsilon: T(A^*) \to k$, given by $\epsiolon(\alpha_1\otimes ... \otimes \alpha_n) = \alpha_1(c)\cdot ... \cdot \alpha_n(c)$, is an augmentation.
+% \end{lemma}
+
+\begin{lemma}
+Let $f: B \ato C$ and $g: A \to B$, then for any MC element $c \in A$, 
+$(f\circ g)^c = f^{g_*(c)} \circ g^c$ and in particular 
+$(f \circ g)_* (c) = f_*(g_*(c))$.
+\end{lemma}
+
+\begin{proof}
+\begin{align*}
+&(f_{g_*(c)} \circ g_c)_n (a_1, ..., a_n) \\
+&= \sum_{i_1,...,i_r} f^{g_*(c)} ((g_c)_{i_1}(a_1,...,a_{i_1}), ...,
+(g_c)_{i_r}(a_{n-i_r},...,a_n)) \\
+&= \sum_{i_1,...,i_r}\sum_{j_0,...,j_s} 
+f (\underbrace{g_*(c)...}_{j_0 \text{ times}},(g_c)_{i_1}(a_1,...,a_{i_1}), 
+g_*(c),...,g_*(c), (g_c)_{i_r}(a_{n-i_r},...,a_n), 
+\underbrace{g_*(c)...}_{j_s}) 
+\end{align*}
+Here the first equality follows from expanding the definition of the
+composition. So the sum in $i$ runs over all $i$'s such that $i_1+...+i_r = n$.
+The second equality, follows from the expanding of the definition of $f^c$.
+Note the notation $\alpha...$, means $\alpha$ is repeated some number of times.
+
+\begin{align*}
+&(f \circ g)^c_n (a_1, ..., a_n) \\
+&= \sum_{i_1,...,i_n} (f \circ g)_n (\underbrace{c...}_{i_0},a_1,c,...,c,a_n,
+\underbrace{c...}_{i_n}) \\
+&= \sum_{i_1,...,i_n}\sum_{j_1,...,j_s} 
+f_s(
+\lefteqn{\underbrace{\phantom{\overbrace{c,...,c}^{\text{apply }g_{j_0}},c...,
+c...}}_{i_0}} 
+\overbrace{c,...,c}^{\text{apply }g_{j_0}},c..., 
+\overbrace{c...,a_1,c,...,c,a_*,c...}^{g_{j_*}}, 
+\overbrace{c,...,c}^{g_{j_{*}}}, ... , 
+\overbrace{c...,a_n,c...}^{g_{j_*}},..., 
+\overbrace{c,...,c}^{g_{j_s}} ) \\
+%%
+&= \sum_{k_1,...,k_r}\sum_{l_0,...,l_s} 
+f (\underbrace{g_*(c)...}_{j_0},(g_c)_{i_1}(a_1,...,a_{i_1}), 
+g_*(c),...,g_*(c), (g_c)_{i_r}(a_{n-i_r},...,a_n), 
+\underbrace{g_*(c)...}_{j_s}) 
+\end{align*}
+In the first line we expand $(f\circ g)^c$ according to def. (\ref{def:hom_c}).
+And in the second line we expand the composition, where the underbraces indicate
+applying $g$ to the indicated elements. On the last line we recognise the
+definition of $g_c$ and $g_*$ in the previous line and re-index accordingly.
+\end{proof}
+
+\begin{corol}
+If $f: A \ato B$ is a finite uncurved \Ainf-isomorphism, 
+then for any MC element $c \in A$, 
+%
+\[ (f^c)^*: H^*(A, m_1^{A,c}) \to H^*(B, m_1^{B,f_*(c)}) \]
+is an isomorphism.
+\end{corol}
+
+\begin{proof}
+We have
+\[ A^c \xrightarrow{f^c} B^{f_*(c)} \xrightarrow{g^{f_*(c)}}
+A^{g_*(f_*(c))} = A^c,  \]
+where the equality follows from the lemma above. Also, by the lemma above 
+\[ g^{f_*(c)} \circ f^c = (g \circ f)^c = \id_A^c = \id. \]
+Similarly $f^c \circ g^{f_*(c)} = \id_B$. So by lemma
+(\ref{prop:Ainf_iso_induced}), the result follows.
+\end{proof}
+
+\begin{lemma}
+If $f: A \ato B$ is an \Ainf-isomorphism, then $I(A) = I(B)$.
+\end{lemma}
+
+\begin{proof}
+If $c \in A$ is a MC element, $f_*(c) \in B$ is an MC element and 
+\[ (f^c)^* : H^*(A, m_1^{A,c}) \to H^*(B, m_1^{B,f_*(c)}) \]
+is an isomorphism, and thus 
+\[ P_{A^c} = P_{B^{f_*(c)}}. \]
+Therefore $I(B) \subseteq I(A)$. By applying the same argument with
+$g^{(f_*(c))}$, \\ $I(A) \subseteq I(B)$ and the result follows. 
+\end{proof}
+
+Now, the only thing we have left in order to show that $I(A)$ is a Legendrian
+knot invariant. That is % invariance under stabilication.
+
+\begin{lemma}
+$I(A) = I(S_i(A)).$
+\end{lemma}
+
+\begin{proof}
+Let $c \in A$ be a MC element. 
+Then $c \oplus 0 \in A \oplus k\<{e_1,e_2}$ is a MC element in $S_i(A)$.
+Since clearly $|c\oplus 0| = |c|= 1$ and 
+\[\sum_{n\ge 0} m^{S_i(A)}_n((c\oplus 0)...) = \sum_{n\ge 0} m^A_n(c...) = 0.\]
+
+Also, it follows easily from the definition of the stabilization that
+$m^{S_i(A), c}_1 (a) = m^{A,c}_n (a)$ for all $a \in A$ and $m^{S_i(A),
+c}_1(e_j) = m^{S_i(A)}_1(e_j)$. So, since $m^{S_i(A)}_1(e_1) = e_2$ and
+$m^{S_i(A)}_1(e_2) = 0$, 
+\[ \im m^{S_i(A), c}_1 = \im m^{A,c}_1 \oplus \im e_2 
+\qq{\text{and}} [e_1] = [0] \in H^*(S_i(A), m^{S_i(A),c}_1). \].
+So 
+\[ H^*\qty(S_i(A), m^{S_i(A),c}_1) = H^*(A, m^{A,c}_1) \]
+Thus $I(A) \subseteq I(S_I(A))$. 
+
+Now for the reverse inclusion, suppose $c \oplus (\alpha e_1 + \beta e_2) \in S_i(A)$ is a
+MC element for some $c\in A$, $\alpha, \beta \in k$. Then 
+\[ 0 = \sum_{n \ge 0} m^{S_i(A)}_n \qty(c \oplus (\alpha e_1 + \beta e_2)...) =
+\qty( \sum_{n \ge 0} m^A_n(c...) ) \oplus \alpha e_2. \]
+So $\alpha = 0$ and $c \in A$ is a MC element. 
+
+As above it is easy to check that 
+\[ H^*\qty(S_i(A), m^{S_i(A),c\oplus \beta e_2}_1) = H^*(A, m^{A,c}_1). \]
+Hence $I(A) \supseteq I(S_I(A))$.
+\end{proof}
+
+It then follows directly from two lemmas above that.
+\begin{them}
+$I(A)$ an invariant of stable type and thus, by theorem
+(\ref{prop:stable_tame_inv}), a Legendrian knot invariant.
+\end{them}
+
+Note that the tame \Ainf-isomorphism condition, in the definition of the stable type,
+is not necessary for this theorem to hold. Instead an finite \Ainf-isomorphism
+would suffice.
+
+% \subsection{Examples}
+
+% With wich we can conclude that there exist non-isotopic legendrian knots with the same clasical invariances.
+
+

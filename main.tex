@@ -1,0 +1,64 @@
+\documentclass[12pt,oneside,english]{report}
+
+%%%%%%% Title %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Legendrian Knots}
+%%  \date{Report Date}
+\author{Tor Gjone (s1706798)}
+
+%%%%%% Packages  %%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[y4project,hyperref,colour]{.styles/edmaths}
+\usepackage[english]{babel}
+
+\usepackage{amsfonts,amsmath,amssymb,amsthm, amscd,bbm}
+\usepackage{enumitem}
+\usepackage{subfigure}
+
+\usepackage{natbib}
+\bibliographystyle{apalike}
+
+\usepackage{comment}
+\renewcommand{\comment}[1]{}
+
+\usepackage{xcolor,bold-extra} 
+
+\usepackage{graphicx}
+\usepackage{pdfpages}
+
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=1.5.1}
+\usepackage{todonotes}
+
+\usepackage{physics}
+\let\qq\undefined
+\let\pmat\undefined
+
+% \usepackage{pgf,tikz,pgfplots}
+\usetikzlibrary{arrows}
+
+%%%%%%% Definitions %%%%%%%%%%%%%%%%%%%%%
+\input{defs}
+
+%%%%%%%% Content %%%%%%%%%%%%%%%%%%%%%%%%
+\flushbottom
+\begin{document}
+% \mmaketitle
+
+\pagenumbering{roman}
+  \maketitle
+
+% \begin{abstract} 
+%   ... Abstract text ... 
+% \end{abstract}
+% \declaration
+% \dedication{...dedication text...}
+
+% \tableofcontents
+% \addcontentsline{toc}{chapter}{Contents}
+% \newpage
+% \pagenumbering{arabic}
+
+\input{body}
+
+\bibliography{refs}
+
+\end{document}

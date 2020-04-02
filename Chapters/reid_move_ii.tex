@@ -1,0 +1,155 @@
+
+\subsection{Move II}
+Let $a,b$ be the two crossings in $\Ym$, which vanish during the
+bifurcation. By slightly perturbing $L_t$ and decreasing $\epsilon$ if necessary,
+we number the crossings of $\Ym$ by $a,b,a_1,...,a_l,b_1,...,b_m$ in such a way
+that (through out the bifurcation. Ignoring $a,b$ after they have vanished)
+\[ H(a_l) \ge ... \ge H(a_1) \ge H(a) > H(b) \ge H(b_1) \ge ... \ge
+H(b_m). \]
+Here, $H(a)$ denotes the absolute difference between the $z$-values of the two
+parts of $L_t$, projection down to $a$.
+
+Note that, by lemma \pref{prop:l_6.1}, the difference between $H(a)$ and $H(b)$
+equals the area of the curved 2-gon (let's call it $D$), which vanish at $t=t'$.  
+Let $\bar{f} \in W^+_2(Y,a)$ be the immersion whose image is $D$. Then,
+since the area of $D$ and thus also the difference between $H(a)$ and
+$H(b)$, corollary \pref{prop:height_sum} implies that, there cannot be any
+immersion $u \in W^+_k(\Ym, a)$ mapping a vertex to $b$, except $\bar{f}$.
+Therefore 
+\[ \pr_a \circ\: m^-(...,b,...) = 0,\quad \text{(except if both the $...$'s are
+empty)}. \]
+Hence $\pr_a \circ\: m^- = \delta^a_b + a f$, where $\delta^a_b:
+TA \to A$ and $f: TA \to \Z_2$, are given by
+\[(\delta^a_b)_1(b) = a, \quad  (\delta^a_b)_1(v) = 0, \quad (\delta^a_b)_k = 0, \quad
+\forall v \ne b, k \ge 1,\]
+and 
+\[ f(...,v,...) = 0, \quad \forall v \in \{ a,b,a_1,...,a_n \}. \]
+
+Denote $(A,m) = (A^+, m^+)$, where $A=\Z_2\<{a_1,...,a_l,b_1,...,b_m}$ and
+let $(A', m') = (S_i(A),m^{S_i(A)})$, where $i = |a|$. 
+We want to show that $(A^-, m^-)$ and $(A, m')$ are tame-isomorphic. 
+
+We'll start by defining the \Ainf-pre-homomorphism $s: A' \ato A^-$, given by 
+$s = \tilde{s} + b f$, where $\tilde{s}: A' \ato A^-$ is the strict
+\Ainf-homomorphism mapping $e_1, e_2$ to $a$ and $b$ respectively and fixes $a_i$ and $b_i$.
+
+\newcommand{\hm}{\widehat{m}}
+
+Let $\hm$ be the unique \Ainf-structure, from lemma 
+\pref{lemma:Ainf_struct_from_pre_hom}, such that $s$ is an
+\Ainf-homomorphism. Then by construction $(A^-, m^-)$ and $(A',
+\hm)$ are tame isomorphic. 
+
+Let $A_{[i]} = \Z_2\<{a_1,...,a_i, b_1,...,b_m, e_1,e_2}$, for each $i\in
+\{0,...,l\}$ and let $\tau : A \ato A'$ be the inclusion, from
+\pref{lemma:tau_id_homotopy}. Then
+
+\begin{lemma}
+\label{lemma:move_ii_alpha}
+\begin{itemize}
+\item[a)] $\pr_{[0]} \circ\: \hm  = \pr_{[0]} \circ\: m'$, where
+$\pr_{[i]}$ is the projection onto $A_{[i]}$,
+\item[b)] $m' \circ\:\tau = \hm \circ\: \tau$.
+\end{itemize}
+\end{lemma}
+
+In order to show that $(A', \hm)$ is also
+tame isomorphic to $(A', m')$, we will inductively construct a sequence of
+tame isomorphic \Ainf-structures $(A', m^{[i]})$. Such that, $(A', m^{[0]}) =
+(A', \hm)$, for each $i \in \{ 0,...,l \}$,
+\[ \pr_{[i]} \circ\: m^{[i]}  = \pr_{[i]} \circ\: m'. \]
+Note that, for $i=l$, $\pr_{[l]} = \id_{A'}$, and thus $(A',m') =
+(A',m^{[l]})$, concluding the proof. Also note that the case of $i=0$ is satisfied,
+by lemma \pref{lemma:move_ii_alpha}, which we will prove after
+constructing the $m^{[i]}$'s. 
+
+Suppose we have already defined $m^{[0]}, ..., m^{[j-1]}$. To define
+$m^{[j]}$, we first define an \Ainf-pre-homomorphism $g^j: A' \ato A'$ 
+(with $g^1$ an isomorphism) and define
+$m^{[j]}$ to be the \Ainf-structure on $A'$, such that $g^j$ is an
+\Ainf-homomorphism from $(A',m^{[j]})$ to $(A',m^{[j-1]})$.
+
+Let $c^j, q^j : A' \ato A'$ be \Ainf-pre-homomorphisms, given by, 
+\begin{equation}
+\label{eq:c_q_def}
+c^j = \pr_{a_j} \circ\: \qty{ m' + m^{[j-1]} } \qq\tand 
+q^j = c^j \circ h,
+\end{equation}
+where $h: A' \ato A'$ is the \Ainf-homotopy, from lemma
+\pref{lemma:tau_id_homotopy}. Then define $g^j := \id_{A'} + q^j$.
+
+It follows immediately from the definition of $h$, that
+\begin{equation}
+\label{eq:q_j_simple}
+q^j(...,a_k,...) = 0, \quad \forall k \ge j.
+% \text{unless } v = e_1,
+\end{equation}
+Hence $g^j$ is tame and $g^j_1$ is an isomorphism. 
+
+Since $g^j$ is an \Ainf-homomorphism, the following \Ainf-relations,
+\begin{equation}
+\label{eq:g_j_Ainf_rels}
+\sum_{r,s,t} g^j_u (\I^{\otimes r} \otimes m^{[j]}_s \otimes 
+\I^{\otimes t}) = (m^{[j-1]} \circ g^j)_n. 
+\end{equation}
+%
+By projecting eq. \ref{eq:g_j_Ainf_rels} onto $A_{[j-1]}$, we have
+\[ LHS = \pr_{[j-1]} \circ\: m^{[j]}_n, \quad \text{since } \pr_{[j-1]}
+\circ\: q^j = 0. \]
+And, using the inductive hypothesise,
+\[ RHS = \pr_{[j-1]} \circ\: m'_n + \pr_{[j-1]} \circ\: ( m' \circ q^j )_n, \]
+where the last term disappears, by corollary \pref{prop:height_sum}.
+
+It remains to prove that $\pr_{a_j} \circ\: m^{[j]}_n = \pr_{a_j} \circ\:
+m'_n$. Projecting eq. \ref{eq:g_j_Ainf_rels} onto $a_{j}$, we have
+\[  LHS = \pr_{a_j} \circ\: m^{[j]}_n + \sum_{r,s,t} q^j_u
+(\I^{\otimes r} \otimes m^{[j]}_s \otimes \I^{\otimes r}), \]
+By eq. \ref{eq:q_j_simple} and since 
+$\pr_{[j-1]} \circ\: m^{[j]}_s = \pr_{[j-1]} \circ\: m'_s$, 
+\[ q^j_u(\I^{\otimes r} \otimes m^{[j]}_s \otimes \I^{\otimes r})
+ = q^j_u(\I^{\otimes r} \otimes m'_s \otimes \I^{\otimes r})
+\]
+And $RHS = \pr_{a_j} \circ\: (m^{[j-1]} \circ\: g^j)_n$. 
+
+\begin{lemma}
+\label{lemma:move_ii_beta}
+For all $k \ge j$ and $n$, 
+\[ (\pr_{a_j} \circ\: m^{[j-1]})_n(...,a_k,...) = 0. \]
+\end{lemma}
+
+\begin{proof}
+By lemma 6.1, the claim holds for $j=1$. We show that the equation holds any
+$j$ by induction on $j$ and $n$. Suppose the equation holds for $j-1$. Then,
+by the explicit construction of $m^{[j]}$, in the proof of lemma
+\pref{lemma:Ainf_struct_from_pre_hom}, 
+\[  m^{[j]}_n = \sum_{r,s<n,t} g^j_u (\I^{\otimes r} \otimes m^{[j]}_s \otimes
+\I^{\otimes t}) + ( m^{[j-1]}_r \circ\: g^j )_n. \]
+Applying the RHS on $(..., a_k, ...)$ (and projection onto $a_j$), the $g^j$ in the last term acts
+as the identity, by equation \ref{eq:q_j_simple}, and thus the last term vanish
+by the inductive hypothesise. When $n=1$, there is no first term (Note that we are ignoring the curvature, ie. $n=0$, since we are
+applying it to at least $a_k$.), so this case is immediate. It then also
+follows, by simple induction on $n$, that the RHS, vanish for all $n$. 
+\end{proof}
+
+By corollary \pref{prop:height_sum}, $\pr_{a_j} \circ\: m'(...,a_k,...) = 0$. 
+Therefore it follows from lemma \pref{lemma:move_ii_beta} that also
+\begin{equation}
+\label{eq:c_on_a_k_vanish}
+\pr_{a_j} \circ\: c^j(...,a_k,...) = 0. 
+\end{equation}
+
+By lemma \pref{lemma:move_ii_beta}, the $g$ on the RHS acts as the
+identity, so we have (suppressing the $\pr_{a_j}$ at the beginning of each
+line)
+\begin{align*}
+m^{[j]}_n 
+&= m^{[j-1]}_n + \sum_{r,s,t} q^j_u (\I^{\otimes r} \otimes m^{[j-1]}_n\otimes
+\I^{\otimes t}) \\
+&= m'_n + c^j_n + \sum_{r,s,t} ( c^j \circ\: h )_u(\I^{\otimes r} \otimes m^{[j-1]}_n\otimes
+\I^{\otimes t}), & \text{by eq. } \ref{eq:c_q_def} \\
+&= m'_n + c^j_n + \sum_{r,s,t} c^j (h_1\otimes ... \otimes h_1)(\I^{\otimes r}
+\otimes m^{[j-1]}_n\otimes \I^{\otimes t}) \\
+&= m'_n + c^j_n + 
+\end{align*}
+
+

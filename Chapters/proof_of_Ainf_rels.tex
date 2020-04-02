@@ -1,0 +1,300 @@
+% Proof of A_inf relations
+
+The proof here is essentially the same as that of Theorem 3.3 in chapter 7
+[\cite{chekanov02}]. The magare differece is found in the fist subsection, in
+which we reduce the algebraic problem to a combinatoiral one.
+
+\subsection{Plan of the proof}
+
+By the linearity of (\ref{eq:a_inf_rel}), it suffuses to show that it is
+satisfied when applied on the generators. That is 
+\[
+\xi_n(a_1,...,a_n) = \sum_{r+s+t = n} m_u(a_1,...,a_r, m_s(a_{r+1, ..., r+s}), a_{r+s+1}, ..., a_n)  = 0,  
+\]
+for all $a_1, ..., a_n \in \Cc$ (and $u = r+1+t$, like before.)
+
+To show that relation hold, we will show every term in $\xi_n$ occur an even
+number of times and thus cancel out, since we are working over $\Z/2\Z$. 
+
+First consider one term in the sum, ie. for a fixed $r,s,t$, such that
+$r+s+t=n$. 
+Then
+
+\begin{align*}
+m_u(a_1,..., a_r, &m_s( a_{r+1}, ..., a_{r+s} ), a_{r+s+1}, ..., a_n) \\
+% &= m_u(a_1,...,a_r, \sum_{a\in\Cc} (\#_2 \M^a_{a_{r+1}...a_{r+s}}) a, a_{r+s+1}, ..., a_n )
+&= \sum_{a\in\Cc} (\#_2 \M^a_{a_{r+1}...a_{r+s}}) m_u(a_1,...,a_r, a, a_{r+s+1}, ..., a_n ) \\
+&= \sum_{a\in\Cc}\sum_{b\in\Cc} (\#_2 \M^a_{a_{r+1}...a_{r+s}}) (\#_2 \M^b_{a_1,...,a_r, a, a_{r+s+1}, ..., a_n}) b \\
+&= \sum_{b\in\Cc} Z_{r,s,t}(b,a_1, ..., a_n) b,
+\end{align*}
+%
+where $Z_{r,s,t}(b,a_1,...,a_n)$ is the number of triplets $(u',a,u'')$, such that 
+%
+\newcommand{\kp}{{k'}}
+\newcommand{\kpp}{{k''}}
+
+\begin{itemize}
+\item 
+$u' \in W^+_\kp(Y,b), \quad a\in \Cc, \quad u'' \in W^+_\kpp(Y,a) $;
+\item
+$\left( u'(x^\kp_1), ..., u'(x^\kp_{u-1}) \right) = \left(a_1,...,a_r, a, a_{r+s+1}, ..., a_n\right)$
+\item
+$\left(u''(x^\kpp_1), ..., u''(x^\kpp_s) \right) = \left(a_{r+1},...,a_{r+s}\right)$.
+% \item 
+% $(a_1,...,a_n) = ( u'(x^\kp_1), ..., u'(x^\kp_r), u''() ) $
+\end{itemize}
+\figpdf{.4}{splitting}
+{An example of a triplet $(u',a,u'') \in U_{1,4,1}(b,a_1,...,a_6)$.}
+
+Here $\kp = u+1$ and $\kpp = s+1$. For an example see figure \pref{fig:splitting}. Let $U_{r,s,t}(b,a_1,...,a_n)$ denote the set of such triplets. Note that for $(r',s',t') \ne (r,s,t)$, 
+\[ U_{r,s,t}(b,a_1,...,a_n) \cap U_{r',s',t'}(b,a_1,...,a_n) = \emptyset, \]
+so we can conclude that 
+\[ \xi_n(a_1,...,a_n) = \sum_{b\in\Cc} Z(b,a_1,...,a_n) b, \] 
+where $Z(b,a_1,...,a_n)$ is the cardinality of
+\[ U(b,a_1,...,a_n) = \bigsqcup_{r+s+t=n} U_{r,s,t}(b,a_1,...,a_n). \] 
+(Note that $r,s,t$ is not in general determined by $(u',a,u'')$, ie. there
+might be $(u',a,u'')$ might be in multiple $U_{r,s,t}$. So, by the
+\textbf{discrete} sum, we meed that the elements in $U(b,a_1,...,a_n)$ are
+indexed by $r,s,t$.)
+%
+Now in order to prove that $\xi_n$ vanish, we will need to show that
+$Z(b,a_1,...,a_n)$ is even. To prove this we will introduce a new space 
+$V^+(b,a_1,..., a_n)$ and construct maps 
+\begin{align*}
+\vphi: U(b, a_1, ..., a_n) \to V^+(b, a_1, ..., a_n), \qquad
+\psi_1, \psi_2: V^+(b, a_1, ..., a_n) \to U(b, a_1, ..., a_n),
+\end{align*}
+such that for all $u \in V^+(b, a_1, ..., a_n)$ and $g \in U(b, a_1, ..., a_n)$;
+\[     \phi(\psi_1) = \phi(\psi_2) = u,
+\quad  \psi_1(g) \ne \psi_2(g),\text{ and} 
+\quad  \psi_1(\phi(g) = g\text{ or }\psi_2(\phi(g) = g. \]
+Then clearly $|U(b,a_1,...,a_2)| = 2|V^+(b,a_1,...,a_n)|$ and the result follows.
+\footnote{Here $|V|$, means the cardinality of a set $V$}
+
+\subsection{Auxiliary definitions}
+\newcommand{\hu}{\hat{u}}
+The maps above indicates that $U$ splits into two pars of equal size. So let
+\[  U(b,a_1,...,a_n) = U^l(b,a_1,...,a_n) \sqcup U^r(b,a_1,...,a_n). \] 
+%where a way of $U^l$, is the set of 
+Given a triplet $(u',a,u'') \in U(b,a_1,...,a_n)$, let $S'\subset \Pi_\kp$ be a
+neighbourhood of $x^\kp_{r+1}$ and $S'' \subset \Pi_\kpp$ a neighbourhood of
+$x^\kpp_0$. Then there are two possibly relative positions of $S_1 = u'(S')$ and
+$S_2 = u''(S'')$ near the crossing $u'(x^\kp_{r+1}) = u''(x^\kpp_0) = a$, see figure
+\pref{fig:S_rel_pos}
+\figpdf{.4}{S_rel_pos}{Relative position of $S_1$ and $S_2$.}
+
+\begin{defn}
+We'll define the subsets $U^l(b,a_1,...,a_n)$ and $U^r(b,a_1,...,a_n)$ to be the
+sets consisting of triplets $(u',a,u'')$, for which $S_1$ and $S_2$ have the
+relative position represented on the left and right side of figure
+\ref{fig:S_rel_pos} respectively. 
+\end{defn}
+
+We will now define $V^+(b,a_1,...,a_n)$. For each $k \in \N$, let $\Theta_k
+\subset \R^2$ be a $k$-sided (curved) polygon, such that the angle of exactly
+one vertex is grater then $\pi$. Denote this vertex by $y^k_0$ and the rest 
+$y^k_1,...,y^k_{k-1}$ numbered anti-clockwise (see figure
+\pref{fig:concave_k_gons}).
+
+\figpdf{.4}{concave_k_gons}{Concave $k$ sided (curved) polygon.}
+
+\begin{defn}
+Let $V_k(Y)$ be the set of orientation-preserving immersions $u: \Theta_k \to
+\R^2$, such that $\hu(\partial \Theta_k) \subset Y$.
+
+Let $\tilde{V}_k(Y) = V_k(Y) / \Diff_+(\Theta_k)$, the set of non-parametrized
+immersions. Here $\Diff_0(\Theta_k)$ is the set of orientation-preserving
+diffeomorphisms of $\Theta_k$.
+\end{defn}
+
+Consider $\hu \in \tilde{V}_k(Y)$, then for $i>0$, we define the sign of $y^k_i$
+in the same way as we did for the immersions of $\Pi_k$ in section
+\pref{sect:a_inf_alg_const}. The image of a neighbourhood of $y^k_0$ in
+$\Theta_k$ covers three quadrants, we'll say $y^k_0$ is positive (resp.
+negative) for $u$ if two of these quadrants are positive (resp. negative).
+
+\begin{defn}
+Let $\hu \in \tilde{V}_k(Y)$, then we'll say $\hu$ is admissible if for exactly one $i
+\in \{0,...,k-1\}$,
+the vertices $y^k_i$ is positive.
+% \[ V^+_{k,s}(Y) = \{ u \in \tilde{V}_k(Y) \q| u \text{is admissible and } y^k_s \text{ is positive for } u \}. \]
+
+Let $V^+_{k,s}(Y) \subset \tilde{V}_k(Y)$, be the set of admissible immersions,
+such that $y^k_s$ is positive. 
+Let $V^+(b,a_1,...,a_{k-1}) \subset V^+_k(Y)$, such that $\hu\in
+V^+(b,a_1,...,a_{k-1})$
+if and only if $u(y^k_0) = b$ and $u(y^k_i) = a_i$ for all $i \in \{ 1,...,k-1
+\}$.
+\end{defn}
+
+\renewcommand{\r}{\sigma}
+\newcommand{\rp}{\sigma'}
+\newcommand{\rpp}{\sigma''}
+
+\subsection{Constructing $\phi$ (Gluing)}
+Let $(u', a, u'') \in U_{r,s,t}(b, a_1, ..., a_n)$. The plan is to glue together the 
+two polygons $\Pi_\kp$ and $\Pi_\kpp$ (recall that $\kp = u+1 = r+t+2$ and $\kpp
+= s+1$) into one concave polygon
+$\Theta_{n+1}$, in such a way that the immersions $u'$ and $u''$ combine into
+an immersion $\hu \in V^+(Y)$.
+
+Suppose $(u', a, u'') \in U^l(b, a_1, ..., a_n)$. Fix
+parametrisations $u'_0: \Pi_\kp \to \R^2$ and $u''_0 : \Pi_\kpp \to \R^2$
+representing $u'$ and $u''$ respectively. Acording to \pref{fig:S_rel_pos},
+there exists maps $\rp : [0,1] \to \partial
+\Pi_\kp$ and $\rpp:[0,1]\to \Pi_\kpp$ such that 
+\[ \rp(0) = x^\kp_{r+1} , \: \rpp(0) = x^\kpp_0  \q{\text{and}} u'_0 \circ \rp =
+u''_0 \circ \rpp. \]
+Choose the maps $\rp$ and $\rpp$ such that the images $\rp([0,1])$, $\rpp([0,1])$
+are maximised. Then either $\rp(1)$, $\rpp(1)$ or both is a vertex.
+
+\subsubsection{Case $\kpp>1$:}
+(ie. the terms not involving the curvature of the \Ainf-structure $m_0$.)
+We'll first consider the case when $\kpp > 1$. Then the above description
+looks like one of the three cases showed in figure \pref{fig:glue1}
+
+\figpdf{.8}{glue1}{The thicker line in the middle, indicated the image of $u'
+\circ \rp = u'' \circ \rpp$.}
+
+In case (a) $\rp(1) = x^\kp_{r+2}$ and $\rpp(1) \ne x^\kpp_s$, in case (b)
+$\rp(1)
+\ne
+x^\kp_{r+2}$ and $\rpp(1) = x^\kpp_s$ and in case (c) both $\rp(1) = x^\kp_{r+2}$ and
+$\rpp(1) = x^\kpp_s$
+
+Define
+\[ \Sigma = \Pi_\kp \sqcup \Pi_\kpp / \sim_r, \]
+where $\rp(t) \sim_r \rpp(t)$ for all $t\in [0,1]$. Also define 
+$\hu : \Sigma \to \R^2$, by
+\[  \hu|_{\Pi_\kp} = u' \q\tand \hu|_{\Pi_\kpp} = u''.  \] 
+
+In fact it follows from lemma \pref{prop:height_sum} 
+that case (c) is impossible. Indeed, by identifying $\Sigma$ with $\Pi_n$, we
+have $\hu \in \tilde{W}_n(Y)$. But since both the positive vertices in the
+original immersions are removed by gluing them together with a negative one, all
+the vertices are negative, which is impossible, according to the lemma,
+
+In case (a) and (b) showed in figure \pref{fig:glue1}, we have $\Sigma \simeq
+\Theta_{n+1}$. Observe that exactly one of the vertices of $\Sigma$ is
+positive for $\hu$, namely the one coming from $x^\kp_0$. So $\hu\in V^+(Y)$. In
+particular $\hu \in V^+(b,a_1,...,a_n)$. Define $\phi(u',a,'u'') = \hu$. 
+
+\subsubsection{Case $\kpp=1$:}
+(ie. the terms coming from the curvature $m_0$.)
+Suppose $s=1$. If $
+pp(1) \ne x^1_0$, we can proceed like above by gluing
+together $\Pi_\kp$ and $\Pi_1$, like in figure (\ref{fig:glue1}a), and define
+$\phi(u',a,u'')$ in the same way.
+
+So suppose $
+pp(1) = x^1_0$. There are four different cases we need to
+consider, see figure \pref{fig:glue2}.
+
+\figpdf{.6}{glue2}{}
+
+If $\rp(1)=x^\kp_{r+2}$, we can glue $\Pi_\kp$ to $\Pi_1$ by identifying
+$\rp(t)$ with
+$
+pp(t)$, like in figure (\ref{fig:glue2}a). But if $\rp(1) \ne
+x^\kp_{i+1}$, we need to do some more gluing, we need to glue $\Pi_\kp$ to itself.
+Let $\r_\pm: [0,1] \to \partial \Pi_\kp$, such that $\r_+(0) = x^\kp_0$,
+$\r_-(0) = \rp(1)$, $u' \circ \r_+(t) = u' \circ \r_-(t)$, for all $t\in[0,1]$ and
+such that the images of $\r_+$ and $\r_-$ are maximized. Define 
+\[ \Sigma = \Pi_\kp \sqcup \Pi_1 / \sim, \]
+where $\rp(t) \sim 
+pp(t)$ and $\r_+(t) \sim \r_-(t)$ for all $t\in[0,1]$.
+
+There are three cases to consider, marked by (c), (b) and (d) in figure
+\pref{fig:glue2}. Like with case (c) in figure \pref{fig:glue1}, case (d), where
+$\r_+(1) = x^\kp_{r+2}$ and $\r_-(1) = x^\kp_{r}$, is impossible, due to lemma
+\pref{prop:l_6}, since there are no positive vertices. 
+
+In either of the three cases (a)-(c), $\Sigma \simeq \Theta_{n+1}$. 
+So like above, we can, by combining $u'$ and $u''$ along $\rp$, $\rpp$ and
+$\r_\pm$, define a new immersion $\hu\in \tilde{V}_k(Y)$. Again, exactly one of the
+vertices of $\Theta_{n+1}$ (ie. the original one from $x^\kp_0$) is positive
+for $\hu$. Hence $\hu\in V^+(Y)$. In particular $\hu \in V^+(b,a_1,...,a_n)$, so
+we may define $\phi(u',a,u'') = \hu$.
+
+Now consider an immersion $w \in U^r(b,a_1,...,a_n)$, then the
+construction of $\phi(w)$ will be exactly the mirror image of the
+construction above. 
+
+\newcommand{\up}{{u'}}
+\newcommand{\upp}{{u''}}
+\newcommand{\half}{\frac{1}{2}}
+
+\renewcommand{\k}{{n+1}}
+
+\subsection{Constructing $\psi_1,\psi_2$ (Cutting)}
+Let $\hu \in V^+(b,a_1,...,a_n)$. The idea is to cut $\Theta_\k$ into a pair of
+polygons diffeomorphic to $\Pi_\kp$ and $\Pi_\kpp$, such that $\kp + \kpp =
+n+2$. Then the restriction of $\hu$ to these polygons yield immersions
+$\up$ and $\upp$, such that $(\up, a, \upp) \in U(b,a_1,...,a_n)$ for $a =
+\upp{x^\kpp_0}$. We will see that there are two ways of doing this cut. One
+will define the map $\psi_1$ and the other the map $\psi_2$.
+
+For $i=1,2$, let $\r_i : [0,\half] \to \Theta_\k$, such that
+$\r_i(0) = y^\k_0$, $\r_i((0,\half]) \subset \hu^{-1}(Y) \setminus \partial
+\Theta_\k$ and such that $\r_1((0,\half]) \cap \r_2((0,\half]) = \emptyset$.
+See figure \pref{fig:cut1}. We extend $\r_i$ to smooth immersion $\r_i : [0,1] \to \Theta_\k$, such that, 
+$\r_i((0,\half]) \subset \hu^{-1}(Y) \setminus \partial \Theta_\k$ and either
+$\r_i(1) \in \partial \Theta_\k$ or $\r_i(1) \in \r_i([0,1))$.
+\figpdf{.4}{cut1}{} 
+The immersions $\r_i$ are then defined uniquely up to reparametrizations. 
+
+There are four possible configurations of the image of $\r_1$ shown in figure
+\pref{fig:cut2}. 
+\figpdf{.6}{cut2}{The image of $\r_1$ is represented by the thick line.} 
+
+In each of the four cases $\r_1([0,1])$ divides $\theta_\k$ into two parts,
+let's call them $\Sigma_1$ and $\Sigma_2$. In case (a), the positive vertex of
+$\Theta_\k$ for $\hu$ is a vertex of either $\Sigma_1$ or $\Sigma_2$, say
+$\Sigma_1$.  
+In the cases (b)-(d), let $\Sigma_1$ be the polygon on the outside, ie. such
+that $\partial \Theta_\k \subset \partial \Sigma_1$, and let $\Sigma_2$ be the
+polygon on the inside. We choose $\kp$ and $\kpp$, such that $\Pi_\kp$ (resp.
+$\Pi_\kpp$) is diffeomorphic (by an orientation-preserving diffeomorphism) to
+$\Sigma_1$ (resp. $\Sigma_2$.) 
+
+Define $\up = \hu|_{\Sigma_1}$ and $\upp = \hu|_{\Sigma_2}$, then 
+(quotienting by the set of diffeomorphism) $\up \in \tilde{W}_\kp(Y)$ and $\upp
+\in \tilde{W}_\kpp(Y)$. By lemma \pref{prop:l_6.1}, both polygons most have at
+least one positive vertex for $\up$ and $\upp$, and since the total number of
+positive vertices is 2, we can conclude both $\up$ and $\upp$ are admissible. 
+Hence $\up \in W^+_\kp(Y,b)$ and $\upp \in W^+(Y,a)$, where $a =
+\upp(x^\kpp_0)$.
+
+In the case (a)-(c), $r,s,t$ are determined uniquely by $(\up,a,\upp)$. But in
+case (d), there are two possible values for $r$, say $r_1 < r_2$, such that
+\[  (\up, a, \upp) \in U_{r_1,1,t_1}(b,a_1,...,a_n) \qq\tand (\up, a, \upp) \in
+U_{r_2,1,t_2}(b,a_1,...,a_n) \] 
+($s=1$ in case (d) and $t_i = n - r_i - 1$.)
+
+Define $\psi_1(\hu) = (\up,a,\upp)$, such that $(\up,a,\upp)
+U_{r_1,1,t_2}(b,a_1,...,a_n)$ in case (d). 
+
+Following the same construction for $r_2$, case (a)-(c), gives us a new 
+$(\up,a,\upp) \in U(b,a_1,...,a_n)$. In case (d), on the other hand, we get the
+same triplet as for $r_1$. Using $r_2$, we define $\psi_2(\hu) = (\up, a,
+\upp)$, such that in case (d) $(\up,a,\upp) \in U_{r_2,1,t_2}(b,a_1,...,a_n)$
+(ie. the larger value of $r$).
+
+This defines $\psi_1$ and $\psi_2$, such that for all $\hu \in
+V^+(b,a_1,...,a_n)$, $\psi_1(\hu) \ne \psi_2(\hu)$.
+
+\subsection{Completing the proof}
+We need to check that $\hu = \phi(\psi_1(\hu)) = \phi(\psi_2(\hu))$ for all 
+$\hu \in V^+(b, a_1,...,a_n)$. This follows easily from the observation that, by
+decomposing $\Theta_\k$ into two parts by either $\r_1$ or $\r_2$ follows by
+gluing them together, we get back the same polygon.
+
+It remains to show that for each $\tau \in U(b,a_1,...,a_n)$, either $\tau =
+\psi_1(\phi(\tau))$ or $\psi_2(\phi(\tau))$. That is we need to check that after
+gluing together $\Pi_\kp$ and $\Pi_\kpp$ into a single $\Theta_\k$ followed by
+cutting along either $\r_1$ or $\r_2$, we get back the same pair of polygons.
+This is quite easy to check. (Note that we also need to check that $r,s$ and $t$
+match up, which follows since $r,s,t$ was uniquely determined in case
+(a)-(c), in the cutting procedure, and in case (d) there was exactly two cases
+corresponding to $\psi_1$ and $\psi_2$.)
+

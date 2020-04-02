@@ -1,0 +1,32 @@
+
+\newcommand{\simpleHeaderBase}[1]{
+    { \noindent \hspace{-.5cm} \Large\textbf{#1} \vspace{.2cm} \newline }
+}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+
+% Defintion
+\newcounter{def}[section]\setcounter{def}{0}
+\renewcommand{\thedef}{\arabic{def}}
+\newenvironment{definition}[2][]{
+    \refstepcounter{def}
+    
+    \simpleHeaderBase{Defintion~\thedef\ifstrempty{#1}{}{:~#1}}
+    %\coloredEnvBoxBase{{\strut\scshape Defintion~\thedef\ifstrempty{#1}{}{:~#1}}}{red!30}
+    %\begin{mdframed}[]\relax
+    \label{#2}
+} { %\end{mdframed} 
+\vspace{.5cm} %\newline
+}
+
+\newenvironment{example}[2][]{
+    \simpleHeaderBase{Example~#1}
+    %\coloredEnvBoxBase{{\strut\scshape Question~#1}}{green!40}
+    %\begin{mdframed}[]\relax
+    \label{#2}
+} { %\end{mdframed} 
+\vspace{.5cm} %\newline
+}
